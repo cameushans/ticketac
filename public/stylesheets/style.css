@@ -11,7 +11,7 @@ body {
   
 }
 
-.login {
+#login {
   color: white;
   height: 100vh;
   
@@ -24,8 +24,9 @@ footer.sticky-footer {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: calc(100% - 90px);
+  width: calc(100%);
   height: 80px;
+  color: white;
 }
 
 footer.sticky-footer .copyright {
@@ -54,3 +55,12 @@ footer.sticky-footer .copyright {
   margin-top: 25vh;
 }
 
+.landmark {
+  background: no-repeat center/30% url(../images/landmark.png), linear-gradient(#7db9e8, #1e5799);
+  background-position:  right 50% bottom 30%;
+}
+
+.titleForm {
+  color: white;
+  margin-top: 25vh;
+}
