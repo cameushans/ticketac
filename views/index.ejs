@@ -7,12 +7,27 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body >
-    <div class="login">
+
+    <!-- HEADER -->
+    <nav class="navbar navbar-light bg-light align-items-start">
+      <a class="navbar-brand" href="#"><img src="images/train.png" alt="" width="30"></a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a id="connection" class="nav-link login" href="#">Connection</a>
+        </li>
+        <li class="nav-item">
+          <a id="trips" class="nav-link lastTrips" href="#">My last trips</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="login mt-5">
+
       <div class="row justify-content-center">
       
 
         <!-- SIGN IN AREA -->
-        <div class="col-12 col-sm-3 text-center">
+        <div class="col-12 col-sm-3 text-center mr-2">
 
           <div class="formArea">
 
@@ -26,7 +41,7 @@
                 <input name="password" type="password" class="form-control" placeholder="Password">
               </div>
 
-              <button type="submit" class="btn btn-danger">Confirm</button>
+              <button type="submit" class="btn btn-danger mb-5">Confirm</button>
             </form>
 
           </div>
@@ -34,10 +49,10 @@
         </div>
 
         <!-- SIGN UP AREA -->
-        <div class="col-12 col-sm-3 text-center">
+        <div class="col-12 col-sm-3 text-center ml-2">
 
           <div class="formArea">
-            <h4 class="titleForm mb-4">Sign Up</h4>
+            <h4 class="titleForm mb-4">Sign-up</h4>
   
             <form action="/sign-up" method="POST">
               <div class="form-group">
@@ -58,7 +73,20 @@
           </div>
   
         </div>
+
+        
+        
       </div>
+
+       <!-- Sticky Footer -->
+         <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright © Blackboard</span>
+            </div>
+          </div>
+        </footer>
+        
     </div>
   
 
