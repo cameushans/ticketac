@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body >
+    <div class="login">
+      <div class="row justify-content-center">
+      
+
+        <!-- SIGN IN AREA -->
+        <div class="col-12 col-sm-3 text-center">
+
+          <div class="formArea">
+
+            <h4 class="titleForm mb-4">Sign-in</h4>
+
+            <form action="/sign-in" method="POST">
+              <div class="form-group">
+                <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control" placeholder="Password">
+              </div>
+
+              <button type="submit" class="btn btn-danger">Confirm</button>
+            </form>
+
+          </div>
+
+        </div>
+
+        <!-- SIGN UP AREA -->
+        <div class="col-12 col-sm-3 text-center">
+
+          <div class="formArea">
+            <h4 class="titleForm mb-4">Sign Up</h4>
+  
+            <form action="/sign-up" method="POST">
+              <div class="form-group">
+                <input name="username" type="text" class="form-control" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input name="username" type="text" class="form-control" placeholder="FirstName">
+              </div>
+              <div class="form-group">
+                <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control"  placeholder="Password">
+              </div>
+  
+              <button type="submit" class="btn btn-danger">Confirm</button>
+            </form>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+
+    <script src="https://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
