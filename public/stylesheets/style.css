@@ -1,20 +1,18 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
   background: #1e5799; /* Old browsers */
   background: -moz-linear-gradient(bottom,  #1e5799 0%, #2989d8 50%,#7db9e8 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(bottom,  #1e5799 0%,#2989d8 50%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to top,  #1e5799 0%,#2989d8 50%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
   
 }
 
 #login {
   color: white;
-  height: 100vh;
-  
 }
 
 footer.sticky-footer {
@@ -35,7 +33,6 @@ footer.sticky-footer .copyright {
 }
 
 .navbar {
-  position: absolute;
   width: 100vw;
   height: 60px;
   top: 0;
@@ -51,9 +48,7 @@ footer.sticky-footer .copyright {
   color: black;
 }
 
-.row {
-  margin-top: 25vh;
-}
+
 
 .landmark {
   background: no-repeat center/30% url(../images/landmark.png), linear-gradient(#7db9e8, #1e5799);
