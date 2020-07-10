@@ -48,8 +48,6 @@ footer.sticky-footer .copyright {
   color: black;
 }
 
-
-
 .landmark {
   background: no-repeat center/30% url(../images/landmark.png), linear-gradient(#7db9e8, #1e5799);
   background-position:  right 50% bottom 30%;
@@ -57,5 +55,18 @@ footer.sticky-footer .copyright {
 
 .titleForm {
   color: white;
-  margin-top: 25vh;
+  margin-top: 10vh;
 }
+
+#ticket {
+  margin-left: 30%;
+}
+
+.ville {
+  font-size: 1.2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
+

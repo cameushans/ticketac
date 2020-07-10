@@ -16,6 +16,17 @@ router.get('/home', function(req, res, next) {
   res.render('home');
 });
 
+/* GET error page. */
+router.get('/errorpage', function(req, res, next) {
+  res.render('errorpage');
+});
+
+/* GET Tickets available page. */
+router.get('/available', function(req, res, next) {
+  res.render('available');
+});
+
+
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
 

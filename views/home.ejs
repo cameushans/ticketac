@@ -12,18 +12,21 @@
    
     <%- include('navbar')%>
 
-    <h4 class="titleForm mb-4">One-way ticket :</h4>
-    
+    <h4 class="titleForm mb-4" id="ticket">One-way ticket :</h4>
+
     <div class="container mt-5" id="homepage">
           <form>
             <div class="row justify-content-center">
-              <div class="col-12 col-sm-3">
+              <div class="col-12 col-sm-3 mb-2">
                 <input type="text" class="form-control" placeholder="From: Paris, Marseille...">
               </div>
-              <div class="col-12 col-sm-3">
+              <div class="col-12 col-sm-3 mb-2">
                 <input type="text" class="form-control" placeholder="To: Lille, Nantes...">
               </div>
-              <button type="submit" class="btn btn-danger mb-5">Go</button>
+              <div class="col-12 col-sm-3 mb-3">
+                <input type="date" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-danger" style="height:40px">Go</button>
             </div>  
           </form>
 
