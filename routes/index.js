@@ -26,6 +26,15 @@ router.get('/available', function(req, res, next) {
   res.render('available');
 });
 
+/* GET Tickets available page. */
+router.get('/tickets', function(req, res, next) {
+  res.render('tickets');
+});
+
+/* GET Tickets available page. */
+router.get('/trips', function(req, res, next) {
+  res.render('trips');
+});
 
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
