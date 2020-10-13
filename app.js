@@ -9,11 +9,23 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var models = require('./routes/index')
+var session = require("express-session")
 
 
 var app = express();
+app.use(session({
+  secret:"a4f8071f-c873-4447-8ee2",
+  resave:false,
+  saveUninitialized:false
+}));
 
-
+dateFormat = function (date){
+  //instancie un nouvel objet date 
+   let  newDate  = new Date(date)
+   //formate la date 
+   let dateFormated = newDate.getDate() + "/" + newDate.getMonth() + "/" + newDate.getFullYear()
+   return dateFormated;//valeur de retour jour/mois/année
+  }
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

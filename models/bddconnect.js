@@ -5,8 +5,9 @@ var options = {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }
+let url = "mongodb+srv://hans:sibawaiyh@cluster0.tglh5.mongodb.net/ticketac?retryWrites=true&w=majority"
 
-mongoose.connect('mongodb+srv://admin:Tua4boas@cluster0.ltgrz.mongodb.net/TICKETAC?retryWrites=true&w=majority',
+mongoose.connect(url,
    options,
    function(err) {
     if (err) {

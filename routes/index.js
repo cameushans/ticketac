@@ -1,40 +1,110 @@
 var express = require('express');
 var router = express.Router();
 
-var journeyModel = require('../models/journey')
+const mongoose = require('mongoose');
+const journeyModel = require("../models/journey");
+const userModel = require("../models/users");
+
+
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
-/* GET login page. */
+
+
+/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-/* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('home');
-});
+router.post("/sign-up",async (req,res,next)=>{
+  req.session.email = req.body.email
+  req.session.password = req.body.password
+  req.session.name = req.body.name
+  req.session.firstName = req.body.firstName
 
-/* GET error page. */
-router.get('/errorpage', function(req, res, next) {
-  res.render('errorpage');
-});
+  let newClient = new userModel({
+    name:req.body.name,
+    firstName:req.body.firstName,
+    email:req.body.email,
+    password:req.body.password
+  })
 
-/* GET Tickets available page. */
-router.get('/available', function(req, res, next) {
-  res.render('available');
-});
+ await newClient.save()
+ res.render("index")
+})
 
-/* GET Tickets available page. */
-router.get('/tickets', function(req, res, next) {
-  res.render('tickets');
-});
 
-/* GET Tickets available page. */
-router.get('/trips', function(req, res, next) {
-  res.render('trips');
-});
+router.post("/sign-in",async (req,res,next)=>{
+  let client = await userModel.find({email:req.body.email,password:req.body.password})
+  for(let i = 0;i<client.length;i++){
+    //condition ternaire 
+    client[i].email === req.body.email && client[i].password === req.body.password? res.redirect("/homepage"):res.render("index");
+  }
+  console.log(client)
+res.render("index")
+})
+
+router.get("/homepage",(req,res,next)=>{
+
+
+  res.render("home")
+})
+router.post("/homepage",async (req,res,next)=>{
+  req.session.date = req.body.date;
+  req.session.departure = req.body.departure;
+  req.session.arrival = req.body.arrival;
+
+    let trajet = await journeyModel.find({departure:req.session.departure,arrival:req.session.arrival})
+
+  //fonction servant a formater la date jour/mois/année
+  dateFormat = function (date){
+    //instancie un nouvel objet date 
+     let  newDate  = new Date(date)
+     //formate la date 
+     let dateFormated = newDate.getDate() + "/" + newDate.getMonth() + "/" + newDate.getFullYear()
+     return dateFormated;//valeur de retour jour/mois/année
+    }
+
+trajet.map((el)=>{
+  //condition ternaire
+ dateFormat(el.date) === dateFormat(req.session.date)?res.redirect("/available"):res.redirect("/error");
+})
+  res.render("home")
+})
+
+router.get("/available",async (req,res,next)=>{
+let traj = await journeyModel.find({departure:req.session.departure,arrival:req.session.arrival})
+  res.render("available",{traj:traj})
+})
+
+
+router.get("/error",(req,res,next)=>{
+  res.render("errorpage")
+})
+
+router.get("/tickets",async(req,res,next)=>{
+let id= req.query.pos;
+if(req.session.newTraj === undefined){
+  req.session.newTraj = []
+
+}
+
+let traj = await journeyModel.findOne({_id:id})
+ req.session.newTraj.push(traj)
+
+
+
+
+res.render("tickets",{traj :req.session.newTraj})
+})
+
+
+router.get("/deconnection",(req,res,next)=>{
+  //chaque fois que le user va cliquer sur decconection et donc changer d'url sa session se detruira
+  req.session.destroy()
+  res.render("index")
+})
 
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
@@ -63,7 +133,7 @@ router.get('/save', async function(req, res, next) {
     }
 
   }
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
 
@@ -81,11 +151,10 @@ router.get('/result', function(req, res, next) {
 
           console.log(`Nombre de trajets au départ de ${journey[0].departure} : `, journey.length);
       }
+      
     )
 
   }
-
-
   res.render('index', { title: 'Express' });
 });
 

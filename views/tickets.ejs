@@ -27,26 +27,23 @@
           </tr>
         </thead>
         <tbody>
+          <% traj.map((el)=>{%> 
           <tr>
             <th scope="row">1</th>
-            <td>Paris/Lille</td>
-            <td>02/08/2019</td>
-            <td>15:00 pm</td>
-            <td>93 €</td>
+            <td><%=  el.departure %>/<%= el.arrival  %> </td>
+            <td><%= dateFormat(el.date)  %> </td>
+            <td><%= el.departureTime  %> </td>
+            <td><%= el.price %>€ </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Paris/Bordeaux</td>
-            <td>07/12/2019</td>
-            <td>19:00 pm</td>
-            <td>125 €</td>
-          </tr>
+        <% }) %> 
           <tr class="table-danger">
-            <th scope="row">Total</th>
+            <th scope="row"> </th>
             <td></td>
             <td></td>
             <td></td>
-            <td class="justify-content-end">218 €</td>
+
+            
+            <td class="justify-content-end">Total <%= traj[0].price * traj.length%>€</td>
           </tr>
         </tbody>
     </table>

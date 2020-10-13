@@ -15,43 +15,20 @@
 
     <!-- TICKETS -->
     <div class="container mt-5" id="homepage">
-      <ul class="list-group mb-3">
+      <ul class="list-group mb-2">
+        <%traj.map((el,i)=>{ %> 
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span class="ville">Paris/Lille</span>
+            <span class="ville"><%= el.departure  %>/<%= el.arrival  %>  </span>
             <div>
-              train departure at : 15.00pm 
+              train departure at : <%= el.departureTime  %> 
             </div>
             <div class="d-inline-flex align-items-center">
-              <span class="ville">99 €</span>
-              <button type="submit" class="btn btn-danger ml-3" style="height:40px">Ok</button>
+              <span class="ville"><%= el.price  %> €</span>
+             <a href="/tickets?pos=<%= el._id%> " ><button type="submit" class="btn btn-danger ml-3" style="height:40px">Ok</button></a>
             </div>
             </li>
-      </ul>  
-      <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span class="ville">Paris/Lille</span>
-          <div>
-            train departure at : 15.00pm 
-          </div>
-          <div class="d-inline-flex align-items-center">
-            <span class="ville">99 €</span>
-            <button type="submit" class="btn btn-danger ml-3" style="height:40px">Ok</button>
-          </div>
-          </li>
-      </ul>
-      <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span class="ville">Paris/Lille</span>
-          <div>
-            train departure at : 15.00pm 
-          </div>
-          <div class="d-inline-flex align-items-center">
-            <span class="ville">99 €</span>
-            <button type="submit" class="btn btn-danger ml-3" style="height:40px">Ok</button>
-          </div>
-          </li>
-      </ul>     
-       
+          <% }) %> 
+      </ul> 
     </div>
 
     <%- include('sidebar')%>   

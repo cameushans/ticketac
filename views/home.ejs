@@ -15,16 +15,16 @@
     <h4 class="titleForm mb-4" id="ticket">One-way ticket :</h4>
 
     <div class="container mt-5" id="homepage">
-          <form>
+          <form method="POST" action="/homepage">
             <div class="row justify-content-center">
               <div class="col-12 col-sm-3 mb-2">
-                <input type="text" class="form-control" placeholder="From: Paris, Marseille...">
+                <input type="text" class="form-control" name="departure" placeholder="From: Paris, Marseille...">
               </div>
               <div class="col-12 col-sm-3 mb-2">
-                <input type="text" class="form-control" placeholder="To: Lille, Nantes...">
+                <input type="text" class="form-control" name="arrival" placeholder="To: Lille, Nantes...">
               </div>
               <div class="col-12 col-sm-3 mb-3">
-                <input type="date" class="form-control">
+                <input type="date"  name ='date' class="form-control" value="2018-11-20">
               </div>
               <button type="submit" class="btn btn-danger" style="height:40px">Go</button>
             </div>  
